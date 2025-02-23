@@ -7,11 +7,17 @@ LetMeCut is a **Next.js-based** URL shortener that allows users to shorten URLs 
 ---
 ## **Features** 🚀
 ✅ **Shorten URLs** – Easily shorten long URLs for quick sharing.
+
 ✅ **Dark & Light Mode** – Switch between dark and light themes for better accessibility.
+
 ✅ **Interactive UI** – A modern, responsive design with real-time updates and feedback.
+
 ✅ **Link Management** – View and manage all your shortened links.
+
 ✅ **MongoDB Integration** – Persistent storage of all shortened URLs in MongoDB.
+
 ✅ **Toast Notifications** – Get real-time feedback for actions (success, errors, and warnings) using Toastify.
+
 ✅ **Responsive Design** – Optimized for mobile and desktop devices.
 
 ---
