@@ -5,13 +5,12 @@ export async function POST(request) {
   try {
     const body = await request.json();
 
-    // Ensure the long URL is provided
+
     if (!body.url) {
       return Response.json({ success: false, error: true, message: "URL is required" });
     }
 
-    // Generate a random short URL if custom alias is not provided
-    const shortUrl = body.shortUrl?.trim() || nanoid(6); // Generates a 6-character short ID
+    const shortUrl = body.shortUrl?.trim() || nanoid(6); 
 
     const client = await clientPromise;
     const db = client.db("letmecut");
@@ -28,7 +27,7 @@ export async function POST(request) {
       success: true,
       error: false,
       message: "URL generated successfully",
-      data: { shortUrl }, // Ensure correct short URL is sent back
+      data: { shortUrl }, 
     });
   } catch (error) {
     console.error("Error inserting into MongoDB:", error);

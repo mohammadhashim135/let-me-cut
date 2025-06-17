@@ -13,7 +13,7 @@ export default function ShortenPage() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    console.log("Short URL state updated:", shortUrl); // Debugging statement
+    console.log("Short URL state updated:", shortUrl); 
   }, [shortUrl]);
 
   const handleGenerate = async () => {
@@ -38,8 +38,8 @@ export default function ShortenPage() {
         setShortUrl(data.data.shortUrl);
         setError("");
         toast.success("Short URL generated successfully!");
-        setLongUrl(""); // Clear the long URL input field
-        setCustomAlias(""); // Clear the custom alias input field
+        setLongUrl(""); 
+        setCustomAlias("");
       } else {
         setError(data.message);
         toast.error(data.message);
