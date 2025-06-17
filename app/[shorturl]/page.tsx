@@ -1,4 +1,4 @@
-// app/[shorturl]/page.tsx
+
 
 import { redirect } from "next/navigation";
 import clientPromise from "@/lib/mongodb";

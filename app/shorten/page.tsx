@@ -106,7 +106,7 @@ export default function ShortenPage() {
               Your Shortened URL:
             </p>
             <a
-              href={`https://${shortUrl}`}
+              href={`/${shortUrl}`}
               target="_blank"
               rel="noopener noreferrer"
               className="text-lg sm:text-xl font-bold underline text-blue-500"

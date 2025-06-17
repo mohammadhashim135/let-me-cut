@@ -14,7 +14,7 @@ export default function Home() {
         {/* Left Section */}
         <div className="md:w-1/2 p-4">
           <h1 className={`text-3xl sm:text-5xl font-extrabold mb-4 sm:mb-6 ${darkMode ? "text-purple-400" : "text-purple-900"}`}>
-            World's Best URL Shortener
+            World&apos;s Best URL Shortener
           </h1>
           <p className={`text-base sm:text-lg ${darkMode ? "text-purple-400" : "text-purple-900"} mb-4 sm:mb-6`}>
             Shorten your URLs with ease and efficiency. Try it out now!

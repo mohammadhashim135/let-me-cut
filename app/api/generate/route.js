@@ -15,13 +15,12 @@ export async function POST(request) {
     const db = client.db("letmecut");
     const collection = db.collection("url");
 
-    // Check if custom alias already exists
     const existing = await collection.findOne({ shortUrl });
     if (existing) {
       return Response.json({ success: false, error: true, message: "Short URL already taken" });
     }
 
-    // ✅ INSERT the originalUrl and shortUrl
+    
     await collection.insertOne({
       shortUrl,
       originalUrl: body.url,
