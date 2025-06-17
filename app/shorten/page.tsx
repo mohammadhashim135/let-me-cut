@@ -34,7 +34,7 @@ export default function ShortenPage() {
       const data = await response.json();
 
       if (data.success) {
-        console.log("Short URL generated:", data.data.shortUrl); // Debugging statement
+        console.log("Short URL generated:", data.data.shortUrl); 
         setShortUrl(data.data.shortUrl);
         setError("");
         toast.success("Short URL generated successfully!");

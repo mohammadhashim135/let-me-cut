@@ -1,3 +1,5 @@
+// app/[shorturl]/page.tsx
+
 import { redirect } from "next/navigation";
 import clientPromise from "@/lib/mongodb";
 
@@ -11,11 +13,15 @@ export default async function RedirectPage({ params }: { params: { shorturl: str
 
     const record = await collection.findOne({ shortUrl });
 
-    if (record && record.originalUrl) {
-      // Redirect to the original URL
-      redirect(record.originalUrl);
+    if (record?.originalUrl) {
+      let originalUrl = record.originalUrl;
+
+      if (!/^https?:\/\//.test(originalUrl)) {
+        originalUrl = `https://${originalUrl}`;
+      }
+
+      redirect(originalUrl);
     } else {
-      // Redirect to a custom 404 or error page if not found
       redirect("/not-found");
     }
   } catch (error) {
