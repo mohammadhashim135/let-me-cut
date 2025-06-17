@@ -1,31 +1,27 @@
+// import { redirect } from "next/navigation";
 
+// export default function RedirectPage({ params }: { params: { shorturl: string } }) {
+//   if (params.shorturl === "myportfolio") {
+//     redirect("https://mohammadhashim.vercel.app/");
+//   }
+
+//   return <p>Not Found</p>;
+// }
 
 import { redirect } from "next/navigation";
 import clientPromise from "@/lib/mongodb";
 
 export default async function RedirectPage({ params }: { params: { shorturl: string } }) {
-  const shortUrl = params.shorturl;
+  console.log(" Params:", params.shorturl);
 
-  try {
-    const client = await clientPromise;
-    const db = client.db("letmecut");
-    const collection = db.collection("url");
+  const client = await clientPromise;
+  const record = await client.db("letmecut").collection("url")
+    .findOne({ shortUrl: params.shorturl });
+  console.log("Record:", record);
 
-    const record = await collection.findOne({ shortUrl });
-
-    if (record?.originalUrl) {
-      let originalUrl = record.originalUrl;
-
-      if (!/^https?:\/\//.test(originalUrl)) {
-        originalUrl = `https://${originalUrl}`;
-      }
-
-      redirect(originalUrl);
-    } else {
-      redirect("/not-found");
-    }
-  } catch (error) {
-    console.error("Redirection error:", error);
-    redirect("/error");
+  if (record?.originalUrl) {
+    redirect(record.originalUrl);
   }
+
+  return <p>Not Found</p>;
 }
