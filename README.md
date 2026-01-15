@@ -111,7 +111,6 @@ git checkout -b feature-branch
 ```
 
 ### **2. Make your changes and commit:**
-
 ```bash
 git commit -m "Added new feature"
 ```
